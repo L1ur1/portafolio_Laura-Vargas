@@ -1,0 +1,443 @@
+/* GENERAL */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+    margin: 0; /* establece el margen para los cuatro lados */
+    padding: 0; /* establece el área de relleno en los cuatro lados de un elemento a la vez */
+}
+
+body {
+    font-family:"Poppins", sans-serif; /* define una lista de fuentes o familias de fuentes, con un orden de prioridad, para utilizar en un elemento seleccionado */
+}
+
+html {
+    scroll-behavior: smooth; /* especifica el comportamiento del desplazamiento para un elemento con desplazamiento, cuando éste se produce debido a la navegación o a APIs CSSOM */ /*Smooth Scroll al efecto de transición entre diferentes secciones de una misma página */
+}
+
+p {
+    color: rgb(85, 85, 85);
+}
+
+/* TRANSITION */
+
+a,
+.btn {
+    transition: all 300ms ease; /* Permite definir la transición entre dos estados de un elemento. */
+}
+
+/* DESKTOP NAV */
+
+nav,
+.nav-links {
+    display: flex; /* ayuda a colocar las cajas como si fueran celdas de tablas, con un comportamiento predecible y adaptable. */
+}
+
+nav {
+    justify-content: space-around; /* define cómo el navegador distribuye el espacio entre y alrededor de los items flex, a lo largo del eje principal de su contenedor. */
+    align-items: center; /* controla la alineación de todos los elementos en el eje transversal */
+    height: 17vh; /* “viewport height” (altura de la ventana gráfica), que es la altura de la pantalla visible. */
+}
+
+.nav-links {
+    gap: 2rem; /* especifica el tamaño de las canaletas, que es el espacio entre filas y columnas dentro de la cuadrícula, flexión y diseño de múltiples columnas. */ /* rem «el tamaño de letra del elemento raíz». */
+    list-style: none; /* permite definir de golpe todos los parámetros */ /* list-style-type : Establece el tipo de viñetas para la lista */
+    font-size: 1.5rem; /* especifica la dimensión de la letra.*/
+}
+
+a {
+    color: black;
+    text-decoration: none; /* se usa para establecer el formato de texto a subrayado ( underline ) y suprarrayado ( overline ), tachado ( line-through ) o parpadeo ( blink ) */
+    text-decoration-color: white; /* establece el color usado cuando se dibujan subrayados o líneas a través del texto, especificadas por la propiedad text-decoration-line. */
+}
+
+a:hover { /* nos permite establecer un segundo estado a cualquier elemento, cuándo un usuario interactúa con este, por ejemplo, al pasar el cursor encima. */
+    color: grey;
+    text-decoration: underline;
+    text-underline-offset: 1rem; /* establecer la distancia del trazo del subrayado respecto al texto */
+    text-decoration-color: rgb(181, 181, 181);
+}
+
+.logo {
+    font-size: 2rem;
+}
+
+.logo:hover {
+    cursor: default; /* especifica el tipo de cursor que se mostrara cuando este se encuentre sobre un elemento. */
+}
+
+/* HAMBURGER MENU */
+
+#hamburger-nav {
+    display: none; /* Además de los Diferentes Tipos de caja de Visualizacion, el valor de none permite Desactivar la Visualizacion DE UN Elemento; cuando no se utiliza none , todos los elementos descendentes también quedan desactivados. */
+}
+
+.hamburger-menu {
+    position: relative; /* especifica cómo un elemento es posicionado en el documento. /* En position: relative , el elemento está posicionado Relativo a sí mismo. */
+    display: inline-block; /* Los " display: inline-block; " Ocupan todo el tamaño del contenido y permite posicionar más elementos a la derecha. */
+}
+
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* especifica cómo colocar los objetos flexibles en el contenedor flexible definiendo el eje principal y la dirección (normal o al revés) */
+    height: 24px;
+    width: 30px;
+    cursor: pointer; /* pointer: comprueba si el usuario tiene un dispositivo de puntero (como el ratón), y si es así, cuán preciso es el dispositivo de puntero primario. */
+}
+
+.hamburger-icon span {
+    width: 100%;
+    height: 2px;
+    background-color: black; /* define el color de fondo de un elemento, puede ser el valor de un color o la palabra clave transparent */
+    transition: all 0.3 ease-in-out; /* transition: proporcionan una forma de animar los cambios de las propiedades CSS, en lugar de que los cambios surtan efecto de manera instantánea. */ /* ease-out iniciará la animación a toda velocidad, luego terminará lentamente. ease-in-out comenzará lentamente, será más rápido en el medio de la animación y luego terminará lentamente. */
+}
+
+.menu-links {
+    position: absolute; /* El posicionamiento absolute hace que un elemento se coloque respecto a su contenedor posicionado mas cercano, si no encuentra ningún contenedor cercano, el elemento se colocara respecto al viewport. */
+    top: 100%; /* especifica parte de la posición de un elemento posicionado. No tiene efecto en elementos no posicionados. */
+    right: 0;
+    background-color: white;
+    width: fit-content; /* fit-content() ajusta un tamaño dado a un tamaño disponible de acuerdo a la fórmula: min(maximum size, max(minimum size, argument)) */
+    max-height: 0; /* se utiliza para definir la altura máxima de un elemento dado. */
+    overflow: hidden; /* overflow especifica: si recortar contenido, dibujar barras de desplazamiento o mostrar el contenido excedente en un elemento a nivel de bloque. */ /* El valor hidden esconde un elemento, pero deja (vacío) el espacio donde debería aparecer. El valor collapse esconde filas o columnas de una tabla. */
+    transition: all 0.3 ease-in-out;
+}
+
+.menu-links a {
+    display: block;
+    padding: 10px; /* establece el área de relleno en los cuatro lados de un elemento a la vez. */
+    text-align: center; /* permite establecer la alineación horizontal de un bloque de texto. */
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+    transition: all 0.3 ease-in-out;
+}
+
+.menu-links li {
+    list-style: none;
+}
+
+.menu-links.open {
+    max-height: 300px;
+}
+
+.hamburger-icon.open span:first-child {
+    transform: rotate(45deg) translate(10px, 5px); /* transform te permite modificar el espacio de coordenadas del modelo de formato visual CSS. */
+}
+
+.hamburger-icon.open span:nth-child(2) {
+    opacity: 0; /* define la transparencia de un elemento, esto es, en qué grado se superpone el fondo al elemento. */
+}
+
+.hamburger-icon.open span:last-child {
+    transform: rotate(-45deg) translate(10px, -5px);
+}
+
+.hamburger-icon span:first-child {
+    transform: none;
+}
+
+.hamburger-icon span:first-child {
+    opacity: 1;
+}
+
+.hamburger-icon span:first-child {
+    transform: none;
+}
+
+/* SECTIONS */
+
+section {
+    padding-top: 4vh; /* establece el espacio de relleno requerido en la parte superior del elemento */
+    height: 96vh;
+    margin: 0 10rem;
+    box-sizing: border-box; /* box-sizing indica cómo se deben calcular las medidas de un elemento.  */ /* border-box le dice al navegador tomar en cuenta para cualquier valor que se especifique de borde o de relleno para el ancho o alto de un elemento */
+    min-height: fit-content; /* se utiliza para definir la altura mínima de un elemento dado. */
+}
+
+.section-container {
+    display: flex;
+}
+
+/* PROFILE SECTION */
+
+#profile {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    height: 80vh;
+}
+
+.profile_pic {
+    height: 400px;
+    width: 400px;
+    border-radius: 50% ;
+}
+
+.section__pic-container {
+    display: flex;
+    height: 400px;
+    width: 400px;
+    margin: auto 0;
+}
+
+.section__text {
+    align-self: center; /* La propiedad align-self indica la alineación de un elemento dentro del bloque que lo contiene */
+    text-align: center;
+}
+
+.section__text p {
+    font-weight: 600; /* especifica el peso o grueso de la letra. */
+}
+
+.section__text__p1 {
+    text-align: center;
+}
+
+.section__text__p2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem; /* establece el espacio requerido en la parte inferior de un elemento. Tambien se permiten valores negativos. */
+}
+
+.title {
+    font-size: 3rem;
+    text-align: center;
+}
+
+#socials-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem; /* establece el margen superior de un elemento especificando una longitud o un porcentaje. */
+    gap: 1rem;
+}
+
+/* ICONS */
+
+.icon {
+    cursor: pointer;
+    height: 2rem;
+}
+
+/* BUTTONS */
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn {
+    font-weight: 600;
+    transition: all 300ms ease; /* ease comienza suavemente, continua de forma más rápida y termina suavemente de nuevo. */
+    padding: 1rem;
+    width: 8rem;
+    border-radius: 2rem; /* La propiedad redondea las esquinas del borde exterior de un elemento. Puede establecer un solo radio para crear esquinas circulares o dos radios para crear esquinas elípticas. */
+}
+
+.btn-color-1,
+.btn-color-2 {
+    border: rgb(53, 53, 53) 0.1rem solid;
+}
+
+.btn-color-1:hover,
+.btn-color-2:hover {
+    cursor: pointer;
+}
+
+.btn-color-1,
+.btn-color-2:hover {
+    background: rgb(53, 53, 53);
+    color: white;
+}
+
+.btn-color-1:hover {
+    background: rgb(0, 0, 0); /* Es un atajo para definir los valores individuales del fondo en una única regla CSS. */
+}
+
+.btn-color-2 {
+    background: none; /* es un atajo para definir los valores individuales del fondo en una única regla CSS. */
+}
+
+.btn-color-2:hover {
+    border: rgb(255, 255, 255) 0.1rem solid;
+}
+
+.btn-container {
+    gap: 1rem;
+}
+
+/* ABOUT SECTION */
+
+#about {
+    position: relative; /* En position: relative , el elemento está posicionado Relativo a sí mismo. */
+}
+
+.about-containers {
+    gap: 2rem; 
+    margin-bottom: 2rem; /* establece el espacio requerido en la parte inferior de un elemento. */
+    margin-top: 2rem; /* establece el margen superior de un elemento especificando una longitud o un porcentaje. */
+}
+
+.about-details-container {
+    justify-content: center;
+    flex-direction: column; /* especifica cómo colocar los objetos flexibles en el contenedor flexible definiendo el eje principal y la dirección (normal o al revés). */
+}
+
+.about-containers,
+.about-details-container {
+    display: flex; /* ayuda a colocar las cajas como si fueran celdas de tablas, con un comportamiento predecible y adaptable. */
+}
+
+.about-pic {
+    height: 400px;
+    width: 400px;
+    border-radius: 50%; 
+    object-fit:cover;
+}
+
+.arrow {
+    position: absolute;
+    right: -5rem;
+    bottom: 2.5rem;
+}
+
+.details-container {
+    padding: 1.5rem;
+    flex: 1;
+    background: white;
+    border-radius: 2rem;
+    border: rgb(53, 53, 53) 0.1rem solid;
+    border-color: rgb(163, 163, 163);
+    text-align: center;
+}
+
+.section-container {
+    gap: 4rem;
+    height: 80%;
+}
+
+.section__pic-container {
+    height: 400px;
+    width: 400px;
+    margin: auto 0;
+}
+
+
+/* EXPERIENCE SECTION */
+
+#experience {
+    position: relative;
+}
+
+.experience-sub-title {
+    color: rgb(85, 85, 85);
+    font-weight: 600;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+.experience-details-container { 
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.article-container {
+    display: flex;
+    text-align: initial;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 2.5rem;
+    justify-content: space-around;
+}
+
+article {
+    display: flex;
+    width: 10rem;
+    justify-content: space-around;
+    gap: 0.5rem;
+}
+
+article .icon {
+    cursor: default;
+}
+
+/* PROJECTS SECTION */
+
+#projects {
+    position: relative;
+}
+
+.color-container {
+    border-color: rgb(163, 163, 163);
+    background: rgb (250, 250, 250);
+}
+
+.project-img {
+    border-radius: 2rem;
+    width: 90%;
+    height: 90%;
+}
+
+.project-title {
+    margin: 1rem;
+    color: black;
+}
+
+.project-btn {
+    color: black;
+    border-color: rgb(163, 163, 163);
+}
+
+/* CONTACT */
+
+#contact {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 70vh;
+}
+
+.contact-info-upper-container {
+    display: flex;
+    justify-content: center;
+    border-radius: 2rem;
+    border: rgb(53, 53, 53) 0.1rem solid;
+    border-color: rgb(163, 163, 163);
+    background: (250, 250, 250);
+    margin: 2rem auto;
+    padding: 0.5rem;
+}
+
+.contact-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem;
+}
+
+.contact-info-container p {
+    font-size: larger;
+}
+
+.contact-icon {
+    cursor: default;
+}
+
+.email-icon {
+    height: 2.5rem;
+}
+
+/* FOOTER SECTION */
+
+footer {
+    height: 26vh;
+    margin: 0 1rem;
+}
+
+footer p {
+    text-align: center;
+}
+
